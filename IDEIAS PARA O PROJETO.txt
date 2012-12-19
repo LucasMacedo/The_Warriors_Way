@@ -1,0 +1,23 @@
+Ideias de Projetos para 2013
+
+
+	Criar um jogo - The Warrior's Way
+
+			- Criar um  jogo do modo de RPG.
+			- Visto de Cima
+			- Diversas Armas
+			- Mudança de Visual
+			- Quests
+			- Somente Guerreiro
+			- Movimentação pelo W,S,A,D e Mouse
+			- Dano , recua 
+			- Inventario
+			- Tela de Status
+			- Cair dos bichos potion, carne , e armas fracas (Mochila)
+			- Fechões, com bichos mais fracos. Em lugares especificos do mapa
+			- MINI - MAPA
+			- Barra de EXP/ HP
+			- Barra de Vida em cima do personagem/ Chefe uma barra diferenciada
+			- Inimigo e armas com certos elementos
+			- Classes do Jogador
+ Um jogo em slideScroll , fazendo com que o jogador ande pelo mapa e vá destruindo construções. Encontraria NPC e mercadores.
