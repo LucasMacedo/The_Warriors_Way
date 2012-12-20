@@ -21,7 +21,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class Fase1 extends BasicGameState {
 
-    public static final int ID = 2;
+    public static final int ID = 3;
     public Image img;
     public Player player;
     GameContainer gc;

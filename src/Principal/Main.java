@@ -2,6 +2,7 @@ package Principal;
 
 import GameState.Fase1;
 import GameState.MenuPrincipal;
+import GameState.TelaHistoria;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -20,6 +21,7 @@ public class Main extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
         this.addState(new MenuPrincipal());
+        this.addState(new TelaHistoria());
         this.addState(new Fase1());
     }
 
