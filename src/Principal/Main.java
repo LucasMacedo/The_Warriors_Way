@@ -4,6 +4,8 @@
  */
 package Principal;
 
+import GameState.Fase1;
+import GameState.MenuPrincipal;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -28,7 +30,9 @@ public class Main extends StateBasedGame{
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        this.addState(new MenuPrincipal());
+        this.addState(new Fase1());
     }
     
     public Main(String title){

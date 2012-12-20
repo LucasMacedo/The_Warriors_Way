@@ -18,6 +18,10 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Fase1 extends BasicGameState{
     
     public static final int ID = 3;
+    public Image img;
+    GameContainer gc;
+    StateBasedGame game;
+    
     
     
 
@@ -27,17 +31,18 @@ public class Fase1 extends BasicGameState{
     }
 
     @Override
-    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void init(GameContainer gc, StateBasedGame game) throws SlickException {
+     
+        this.img = new Image("");  
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void render(GameContainer gc, StateBasedGame game, Graphics g) throws SlickException {
+       
     }
 
     @Override
-    public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void update(GameContainer gc, StateBasedGame game, int i) throws SlickException {
+       
     }  
 }

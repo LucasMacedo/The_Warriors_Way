@@ -10,7 +10,7 @@ public abstract class GameObject {
     
     public abstract void update(GameContainer gc, StateBasedGame game, int delta);
     public abstract void render(GameContainer gc, StateBasedGame game, Graphics g);
-    
+
     public int getX(){
         return this.x;
     }
