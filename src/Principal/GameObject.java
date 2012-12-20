@@ -8,6 +8,7 @@ package Principal;
  *
  * @author Maike
  */
+
 public class GameObject {
     
 }
