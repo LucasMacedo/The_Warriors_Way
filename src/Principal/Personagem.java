@@ -6,11 +6,11 @@ package Principal;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
@@ -58,6 +58,11 @@ public class Personagem extends GameObject{
 //    public Direcao getDirecao(){
 //        return this.direcao;
 //    }
+
+    @Override
+    public Shape getShape() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
    
 

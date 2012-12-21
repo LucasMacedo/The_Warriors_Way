@@ -4,6 +4,7 @@
  */
 package GameState;
 
+import Principal.Arma;
 import Principal.Player;
 import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.SetterOnlyReflection;
 import org.newdawn.slick.Color;
@@ -30,6 +31,7 @@ public class Fase1 extends BasicGameState {
     public Player player;
     GameContainer gc;
     StateBasedGame game;
+    Arma arma;
 
     @Override
     public int getID() {
@@ -40,6 +42,7 @@ public class Fase1 extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame game) throws SlickException {
         this.player = new Player(gc.getWidth() / 2, gc.getHeight() / 2, "teste");
         this.mapa = new TiledMap("resources/mapa teste.tmx");
+        this.arma = new Arma("teste");
     }
 
     @Override
@@ -52,6 +55,7 @@ public class Fase1 extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame game, Graphics g) throws SlickException {
         this.mapa.render(this.xMapa, this.yMapa);
         this.player.render(gc, game, g);
+        this.arma.render(gc, game, g);
     }
 
     public void processInput(GameContainer gc) {
@@ -72,6 +76,10 @@ public class Fase1 extends BasicGameState {
         if (input.isKeyDown(Input.KEY_RIGHT) || input.isKeyDown(Input.KEY_D)) {
             this.xMapa-= player.getVelocidade();
             //this.player.setX(this.player.getX() + 5);
+        }
+        
+        if(input.isMousePressed(1)){
+            this.arma.atacou = true;
         }
     }
 }
