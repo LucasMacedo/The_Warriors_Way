@@ -16,14 +16,14 @@ public class Player extends GameObject {
     int velocidade = 3;
     double anguloRotate;
 
-    public Player(int x, int y, String nome) {
+    public Player(int xSpawn, int ySpawn, String nome) {
         try {
             this.imagem = new Image("resources/personagens/player.png");
         } catch (SlickException ex) {
             ex.printStackTrace();
         }
-        this.x = x;
-        this.y = y;
+        this.x = xSpawn;
+        this.y = ySpawn;
 
         this.nome = nome;
     }
@@ -64,4 +64,8 @@ public class Player extends GameObject {
     public void setVelocidade(int velocidade) {
         this.velocidade = velocidade;
     }
+
+    public double getAnguloRotate() {
+        return anguloRotate;
+    }    
 }

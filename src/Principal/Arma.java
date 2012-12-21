@@ -22,11 +22,14 @@ public class Arma extends GameObject {
     String nome;
     Image imagem;
     double anguloRotate = 90;
+    double anguloPadrao;
     public boolean atacou;
-    int contAtaque = 500;
+    public int contAtaque = 50;
+    Player portador;
 
-    public Arma(String nome) {
+    public Arma(String nome, Player portador) {
         this.nome = nome;
+        this.portador = portador;
         try {
             this.imagem = new Image("resources/weapons/2h sword.png");
         } catch (SlickException ex) {
@@ -36,18 +39,26 @@ public class Arma extends GameObject {
 
     @Override
     public void update(GameContainer gc, StateBasedGame game, int delta) {
+        this.anguloPadrao = this.portador.getAnguloRotate();
+        this.x = this.portador.getX();
+        this.y = this.portador.getY();
+
         if (this.atacou) {
             this.rotacionaImagem(gc);
-            this.contAtaque --;
-            if(this.contAtaque <= 0){
+            this.contAtaque--;
+            if (this.contAtaque <= 0) {
                 this.atacou = false;
+                this.anguloRotate = this.anguloPadrao;
             }
         }
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame game, Graphics g) {
-        this.imagem.draw(10, 10);
+        g.rotate(x, y + this.imagem.getHeight() / 2, (float) -this.anguloPadrao);
+        //fazer a arma sempre ficar na mao direita
+        this.imagem.draw(x, y);
+        g.rotate(x, y + this.imagem.getHeight() / 2, (float) this.anguloPadrao);
     }
 
     @Override
@@ -56,7 +67,6 @@ public class Arma extends GameObject {
     }
 
     public void rotacionaImagem(GameContainer gc) {
-        this.anguloRotate ++;
-        this.imagem.setRotation((float) -this.anguloRotate);
+        this.anguloRotate++;
     }
 }

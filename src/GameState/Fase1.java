@@ -5,6 +5,7 @@
 package GameState;
 
 import Principal.Arma;
+import Principal.Mapa;
 import Principal.Player;
 import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.SetterOnlyReflection;
 import org.newdawn.slick.Color;
@@ -24,14 +25,14 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Fase1 extends BasicGameState {
 
     public static final int ID = 3;
-    TiledMap mapa;
-    int xMapa;
-    int yMapa;
+    Mapa mapa;
     public Image img;
     public Player player;
     GameContainer gc;
     StateBasedGame game;
     Arma arma;
+    int offsetx;
+    int offsety;
 
     @Override
     public int getID() {
@@ -40,20 +41,25 @@ public class Fase1 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame game) throws SlickException {
-        this.player = new Player(gc.getWidth() / 2, gc.getHeight() / 2, "teste");
-        this.mapa = new TiledMap("resources/mapa teste.tmx");
-        this.arma = new Arma("teste");
+        int xSpawn = gc.getWidth() / 2;
+        int ySpawn = gc.getHeight() / 2;
+        this.player = new Player(xSpawn, ySpawn, "teste");
+        this.mapa = new Mapa("mapa teste");
+        this.arma = new Arma("teste", player);
+        this.offsetx = xSpawn;
+        this.offsety = ySpawn;
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame game, int i) throws SlickException {
         this.processInput(gc);
         this.player.update(gc, game, i);
+        this.arma.update(gc, game, i);
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame game, Graphics g) throws SlickException {
-        this.mapa.render(this.xMapa, this.yMapa);
+        this.mapa.render(gc, game, g);
         this.player.render(gc, game, g);
         this.arma.render(gc, game, g);
     }
@@ -62,24 +68,30 @@ public class Fase1 extends BasicGameState {
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_UP) || input.isKeyDown(Input.KEY_W)) {
-            this.yMapa += player.getVelocidade();
+            this.mapa.setY(this.mapa.getY() + this.player.getVelocidade());
+            this.offsety -= this.player.getVelocidade();
             //this.player.setY(this.player.getY() - 5);
         }
         if (input.isKeyDown(Input.KEY_DOWN) || input.isKeyDown(Input.KEY_S)) {
-            this.yMapa-= player.getVelocidade();
+            this.mapa.setY(this.mapa.getY() - this.player.getVelocidade());
+            this.offsety += this.player.getVelocidade();
             //this.player.setY(this.player.getY() + 5);
         }
         if (input.isKeyDown(Input.KEY_LEFT) || input.isKeyDown(Input.KEY_A)) {
-            this.xMapa+= player.getVelocidade();
+            this.mapa.setX(this.mapa.getX() + this.player.getVelocidade());
+            this.offsetx -= this.player.getVelocidade();
             //this.player.setX(this.player.getX() - 5);
         }
         if (input.isKeyDown(Input.KEY_RIGHT) || input.isKeyDown(Input.KEY_D)) {
-            this.xMapa-= player.getVelocidade();
+            this.mapa.setX(this.mapa.getX() - this.player.getVelocidade());
+            this.offsetx += this.player.getVelocidade();
             //this.player.setX(this.player.getX() + 5);
         }
-        
-        if(input.isMousePressed(1)){
+
+        //if (input.isMousePressed(1)) {
+        if (input.isKeyDown(Input.KEY_SPACE)) {
             this.arma.atacou = true;
+            this.arma.contAtaque = 50;
         }
     }
 }
