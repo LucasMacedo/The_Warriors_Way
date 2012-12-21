@@ -2,16 +2,17 @@ package Principal;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 public abstract class GameObject {
     protected int x;
     protected int y;
-
     
     public abstract void update(GameContainer gc, StateBasedGame game, int delta);
     public abstract void render(GameContainer gc, StateBasedGame game, Graphics g);
-
+    public abstract Shape getShape();
+    
     public int getX(){
         return this.x;
     }

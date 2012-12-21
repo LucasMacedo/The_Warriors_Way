@@ -14,6 +14,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.tiled.TiledMap;
 
 /**
  *
@@ -22,6 +23,9 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Fase1 extends BasicGameState {
 
     public static final int ID = 3;
+    TiledMap mapa;
+    int xMapa;
+    int yMapa;
     public Image img;
     public Player player;
     GameContainer gc;
@@ -34,7 +38,8 @@ public class Fase1 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame game) throws SlickException {
-        this.player = new Player(100, 100, "teste");
+        this.player = new Player(gc.getWidth() / 2, gc.getHeight() / 2, "teste");
+        this.mapa = new TiledMap("resources/mapa teste.tmx");
     }
 
     @Override
@@ -45,6 +50,7 @@ public class Fase1 extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame game, Graphics g) throws SlickException {
+        this.mapa.render(this.xMapa, this.yMapa);
         this.player.render(gc, game, g);
     }
 
@@ -52,16 +58,20 @@ public class Fase1 extends BasicGameState {
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_UP) || input.isKeyDown(Input.KEY_W)) {
-            this.player.setY(this.player.getY() - 5);
+            this.yMapa += player.getVelocidade();
+            //this.player.setY(this.player.getY() - 5);
         }
         if (input.isKeyDown(Input.KEY_DOWN) || input.isKeyDown(Input.KEY_S)) {
-            this.player.setY(this.player.getY() + 5);
+            this.yMapa-= player.getVelocidade();
+            //this.player.setY(this.player.getY() + 5);
         }
         if (input.isKeyDown(Input.KEY_LEFT) || input.isKeyDown(Input.KEY_A)) {
-            this.player.setX(this.player.getX() - 5);
+            this.xMapa+= player.getVelocidade();
+            //this.player.setX(this.player.getX() - 5);
         }
         if (input.isKeyDown(Input.KEY_RIGHT) || input.isKeyDown(Input.KEY_D)) {
-            this.player.setX(this.player.getX() + 5);
+            this.xMapa-= player.getVelocidade();
+            //this.player.setX(this.player.getX() + 5);
         }
     }
 }
