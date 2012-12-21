@@ -15,8 +15,9 @@ public class Player extends GameObject {
     Image imagem;
     int velocidade = 3;
     double anguloRotate;
+    Arma arma;
 
-    public Player(int xSpawn, int ySpawn, String nome) {
+    public Player(int xSpawn, int ySpawn, String nome, String arma) {
         try {
             this.imagem = new Image("resources/personagens/player.png");
         } catch (SlickException ex) {
@@ -26,23 +27,28 @@ public class Player extends GameObject {
         this.y = ySpawn;
 
         this.nome = nome;
+        this.arma = new Arma(arma, this);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame game, int delta) {
-        this.rotacionaImagem(gc);
+        this.arma.update(gc, game, delta);
+        if (this.arma.atacou == false) {
+            this.rotacionaImagem(gc);
+        }
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame game, Graphics g) {
+        this.arma.render(gc, game, g);
         this.imagem.draw(this.x, this.y);
-        g.draw(this.getShape());
+        //  g.draw(this.getShape());
     }
 
     @Override
     public Shape getShape() {
         Shape s = new Rectangle(this.x, this.y, this.imagem.getWidth(), this.imagem.getHeight());
-        s = s.transform(Transform.createRotateTransform((float) -this.anguloRotate, x+this.imagem.getCenterOfRotationX(), y+this.imagem.getCenterOfRotationY()));
+        s = s.transform(Transform.createRotateTransform((float) -this.anguloRotate, x + this.imagem.getCenterOfRotationX(), y + this.imagem.getCenterOfRotationY()));
         return s;
     }
 
@@ -67,5 +73,13 @@ public class Player extends GameObject {
 
     public double getAnguloRotate() {
         return anguloRotate;
-    }    
+    }
+
+    public Arma getArma() {
+        return arma;
+    }
+
+    public void setArma(Arma arma) {
+        this.arma = arma;
+    }
 }
