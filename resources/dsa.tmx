@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="24" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tile1e" tilewidth="32" tileheight="32">
+  <image source="The Warrior's Way/Tiles/tile1e.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="257" name="TileA1-3" tilewidth="32" tileheight="32">
+  <image source="The Warrior's Way/Tiles/TileA1-3.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="449" name="tileb" tilewidth="32" tileheight="32">
+  <image source="../../../Program Files/Tiled/util/Tiles/tileb.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="705" name="TileA5-2 (1)" tilewidth="32" tileheight="32">
+  <image source="../../../Program Files/Tiled/util/Tiles/TileA5-2 (1).png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="833" name="tilea5a" tilewidth="32" tileheight="32">
+  <image source="../../../Program Files/Tiled/util/Tiles/tilea5a.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="961" name="TileE" tilewidth="32" tileheight="32">
+  <image source="../../../Program Files/Tiled/util/Tiles/TileE.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="1089" name="tilea5a" tilewidth="32" tileheight="32">
+  <image source="../../../Program Files/Tiled/util/Tiles/tilea5a.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="1217" name="TileE" tilewidth="32" tileheight="32">
+  <image source="../../../Program Files/Tiled/util/Tiles/TileE.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="1345" name="TileE" tilewidth="32" tileheight="32">
+  <image source="The Warrior's Way/Tiles/TileE.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="1473" name="TileC-2" tilewidth="32" tileheight="32">
+  <image source="The Warrior's Way/Tiles/TileC-2.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="1729" name="tilea3" tilewidth="32" tileheight="32">
+  <image source="The Warrior's Way/Tiles/tilea3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1857" name="tilecz" tilewidth="32" tileheight="32">
+  <image source="The Warrior's Way/Tiles/tilecz.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="2113" name="chibitalia" tilewidth="32" tileheight="32">
+  <image source="chibitalia.png" width="128" height="192"/>
+ </tileset>
+ <layer name="Camada de Tiles 1" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYuiBxhNoNAkWsA28/zA0D7ZZRQDwAALDTAp8=
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 2" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJz7wMTA8IGG+AsjfkxLu9Htp7Vd+OwfCLtH8SimFS4dBG4YxaN4FI8cfBtYj94B4puj9SkYF7FiZ9PaTmQsxQLB6OK0cA8XCyqWZEHYL82CKU9Lu4mxn1puwGYusfYTcgMA2Aap7w==
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 3" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJytlTlLA0EUxzeTBLXwaC08voBH69FaKGLvCaJ2ooJaiQdoCkGFYCIEDwgxaisYsUkaK1GwFv0Mqays/D8yjx2ys7uT3X3w4yXZnfntf5N9saxwVUpYVjludu5nzEnYKsNfSQRb+2vop3xuUP5nAz+5dOgq3mSegfOviGj85GZMivNve/irwsyvuk2vgfOnfPz8fVU9zgviN/n+ycnXEKV/yrLzdwb0832pJIJ1zl9S3jfS3crkmS4q+dM+v3+T2sEeu8K+LyZ+zp+X65bQlwNeywnWnWr8GXyWddmT8z/K45voWxHcC9V/i/2Kmj1p5nB+nj+H6EfKuevgXNRwqwfhRPU/kUeznmYO51fnz2qdvyBqNOpvRW8D7aBDsz4l83vNH/LnJY36u9C7QQ/oddnf6zkqSPzqXjihPfvQ+8EAGATvmNcf4E2Z217/v2H8r3AMoQ+DETCq8bf45DctnZ9qHH0CjDVb1iT6N7w/4EuTfzGE/0U4oZpGnwGzYA78xWrM49gCSCejye/mry/2c+WS9uvLpPN8rgyOZSUX4DjAfDoLMdOu4LyW3ICcy15r+HwPHIB92en9Rsh5Wu/neeg1E6Ms8hcld0l7HhL/rRq8Yg==
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 4" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAtOMvIwHAOiM8DMS8TAwMfEPMDsQAT9e0KBJoZxISgQeAu0N57UPt1gWJ6QKwPxAZA/JuRuvYnAs0MBmJnIHZBcgMM2AL5fkDsD8QONLA/EGo3yA0hWNwQC2THAXE8ECfQwf8gOokG8UyMG0KgNHocgMAKJgSmlRtA/k7E4f8dTAhMCFhR33kM25kQeBSMgpEIPFjpb6fvANhJCpg0wOXBotHyiGwweZCnrVEwOAEAC4keig==
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 5" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztjs0NgkAQRice2D79KUCRAhQoQJQCRC3AvwKgMt/VsNmMB+Zg5iUv2cN8eSvyzTwTWeAyE3PWNDeY4xYL4z/s6O2xxApr4/6BXoNHPGFr3D/T6/CCV7wZ9+/0HvjEF74n7DezSD/QD+P3FHSRfk9vCON3jFVk/8uNZp+iUOxTN5p9ilqxT91o9o7jOI7zr3wAiV8bmA==
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 6" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztzjERAAAIBKCf7Gn/Eq4W8FwgAQlb1/cAAADuDHLGAGg=
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 7" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztzkENAAAIBKB7Wsv+pYyhc5CABADgnq7tAfw0AUMASg==
+  </data>
+ </layer>
+</map>

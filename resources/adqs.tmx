@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="24" tilewidth="32" tileheight="32">
+ <resorces/Tileset firstgid="1" name="tile1e" tilewidth="32" tileheight="32">
+  <image source="Tiles/tile1e.png" width="512" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="257" name="TileA5-2 (1)" tilewidth="32" tileheight="32">
+  <image source="Tiles/TileA5-2 (1).png" width="256" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="385" name="tilea5a" tilewidth="32" tileheight="32">
+  <image source="Tiles/tilea5a.png" width="256" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="513" name="tileb" tilewidth="32" tileheight="32">
+  <image source="Tiles/tileb.png" width="512" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="769" name="TileB-3" tilewidth="32" tileheight="32">
+  <image source="Tiles/TileB-3.png" width="512" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="1025" name="tilebhv" tilewidth="32" tileheight="32">
+  <image source="Tiles/tilebhv.png" width="512" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="1281" name="TileC-2" tilewidth="32" tileheight="32">
+  <image source="Tiles/TileC-2.png" width="512" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="1537" name="tilee (1)" tilewidth="32" tileheight="32">
+  <image source="Tiles/tilee (1).png" width="512" height="512"/>
+ </resorces/Tileset>
+ <resorces/Tileset firstgid="1793" name="TileE-2" tilewidth="32" tileheight="32">
+  <image source="Tiles/TileE-2.png" width="512" height="512"/>
+ </resorces/Tileset>
+ <layer name="Camada de resorces/Tiles 1" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJwzYGRgMKARNmcijGll96j9o/YPtP0wrAfEJkhsetg5av+o/eS6ld72YcOj9o+cNDBq/6j9I9X+gfYrAO//lHs=
+  </data>
+ </layer>
+ <layer name="Camada de resorces/Tiles 2" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzllE9OAjEUh8c6W7kBnsKEBYkb1gordigXANwKXgD1AgoHYAFXMVHiAQwhuBVjYMmvmb7YvPTPlGEwkV/yZV5o06/D6zSKsuUtjqJpnNRnRwklkUC5QH0JqqCm/a7PMWXiGH8xjNn8DdRX4Bo0wQkoeNxpor+7y99C3QYdcAOK4DSFn9YLhftvUXdBD9zt4L19++X+Pup78AAe/8D/hPoZDMBwD36K6XzIzONf8vSbxg/FP7bcDzY/75Upvjnkp3lp+r/tN/5fsGUhwqE1K6r38unClZUIR/f71vfN+RThcP+7Y/3RsXt/axEO+V+Vfx5w156zs5Cl/x/K/5PSL90EJUv/yR/iLrM9ZPmmtvHz/0Cus1J95c+FOm/8Sf4v5bfdg3WMLcG3yMcvQ+9vOud5+233zVSD/Hp4H3ftn2mQfwMMtubk
+  </data>
+ </layer>
+ <layer name="Camada de resorces/Tiles 3" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzVlMlKRDEQRWNDu3H4ASdw/AE/T/9A1+pa2wkUwdnWlbOoC3FeivPaeeV52NJNU12pYHzihcODqkpuJS+Jc+mrJVNE0zT51mrn2qAdOqATumDGM9bah6ZDJT9l8K+hplaoqyNWb1j/T9XA/I2CRxOx5hT8ffpv/nnq12C18E1b+3geZIpfTcPkRyL1mCvMk68wX06IzxKbU/ylMZU076mV8uvENpRxvjlLtemp9eVjjQmRZX9D/kGoLPv7XTOQdW4QhrLx/C37m9SM4jkG4zABkxF7sGgBv0VYgmVYEfyPlLVoOYu28NuGHdiFPcH/SvHQchad4ncG53ABl5H2/5i+Tgy93eJ3B/fwAI+R/K/xvjH4v+D3Cm/wDh8R/JN7/QTPv3C/y8+bdP5C3tZEPay517ju8vMmnb/Qt7UP7/6U732puqu++At9AmZRR1A=
+  </data>
+ </layer>
+ <layer name="Camada de resorces/Tiles 4" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFwxVwMzEw8DBhivMCxfiwiFMbSAPtkMFijyxQTI4O9g9HsAcYbnsHMOzOAO0+Oxp3o4CKgJOVNuZeAabTq0y4aRiQpJH9T4B2PGXCTdMafAHa8ZUJO40eBvQG9AoDXGC4+5+Q/2BpgVZgoOMX5r/hHs+EAKF4BgAQKixP
+  </data>
+ </layer>
+ <layer name="Camada de resorces/Tiles 5" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzt1blOAkEcgHGyy1GAJB6ACWiCJ62AYsultqigLZ60CAo1KFjL+QI+gpVYUphop4U9vgH2fh0WmEgyO5sY/skvmwyb/SYks2sw/L+5V/TtP+jc7/7oqzruxUrbNqQ/wZpd4L6ef3mWm3XPkN/mWJsX2P+Q+B8/Cm6NclY63PukDK4iZpSz8sK9r8rgKmK6Op/V8Wg7iso7EEaYYIZFldOepDOFaczAASdcmJWwBy+NBSxiCctYwSp8EvprNPwIIIh1bCCETQn9MI0Iooghji1sY0dCP0FjF3vYRxIpHOBQQj9N4wjHOMEpznCOjIR+lsYFcsjjElcooKhx/433+jtKdMq4xg0qqOJW436P9ifu6NRQRwNNtNDWuN+n/fWHb9s3SFcqsw==
+  </data>
+ </layer>
+ <layer name="Camada de resorces/Tiles 6" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztzUERAAAEADAv/aOJIIoS7nhsBRYBAAD7Km//Pv6/GlyyAb0=
+  </data>
+ </layer>
+</map>

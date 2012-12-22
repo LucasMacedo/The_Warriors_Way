@@ -43,10 +43,10 @@ public class TelaHistoria extends BasicGameState {
         
         g.setColor(Color.red);
         g.drawString("The Warrior's Way",gc.getWidth()/2-90,50);
-        g.drawString("Historia se passa em um reino,uma terra",gc.getWidth()/2-160,100);
-        g.drawString("medieval, governada por um rei",gc.getWidth()/2-190,120);
-        
-        
+        g.drawString("Historia se passa em um reino,uma ",gc.getWidth()/2-160,100);
+        g.drawString("terra medieval, governada por um rei,",gc.getWidth()/2-190,120);
+        g.drawString("governada por um rei,sendo reino mt prospero",gc.getWidth()/2-190,140);
+               
     }
 
     @Override

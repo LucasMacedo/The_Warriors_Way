@@ -79,7 +79,7 @@ public class MenuPrincipal extends BasicGameState {
 
         if (key == Input.KEY_ENTER) {
             if (this.options[this.selected].equals("Inicio de Jogo")) {
-                this.game.enterState(TelaHistoria.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+                this.game.enterState(Fase1.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
             }
 
             if (this.options[this.selected].equals("Sair")) {
