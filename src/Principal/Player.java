@@ -21,12 +21,12 @@ public class Player extends Personagem {
         this.y = ySpawn;
 
         this.nome = nome;
-        
+
         ///testes
         this.forca = 50;
         this.velocidade = 3;
         //
-        
+
         this.arma = new Arma(arma, this);
     }
 
@@ -42,13 +42,14 @@ public class Player extends Personagem {
     public void render(GameContainer gc, StateBasedGame game, Graphics g) {
         this.arma.render(gc, game, g);
         this.imagem.draw(this.x, this.y);
-        //  g.draw(this.getShape());
+        g.draw(this.getShape());
     }
 
     @Override
     public Shape getShape() {
         Shape s = new Rectangle(this.x, this.y, this.imagem.getWidth(), this.imagem.getHeight());
-        s = s.transform(Transform.createRotateTransform((float) -this.anguloRotate, x + this.imagem.getCenterOfRotationX(), y + this.imagem.getCenterOfRotationY()));
+        float angulo = (float) Math.toRadians(this.anguloRotate);
+        s = s.transform(Transform.createRotateTransform(-angulo, x + this.imagem.getCenterOfRotationX(), y + this.imagem.getCenterOfRotationY()));
         return s;
     }
 
@@ -62,7 +63,4 @@ public class Player extends Personagem {
     public double getAnguloRotate() {
         return anguloRotate;
     }
-
-    
-    
 }

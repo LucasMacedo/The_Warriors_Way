@@ -4,7 +4,9 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
+import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Inimigo extends Personagem {
@@ -57,11 +59,15 @@ public class Inimigo extends Personagem {
     public void render(GameContainer gc, StateBasedGame game, Graphics g) {
         this.arma.render(gc, game, g);
         this.imagem.draw(x, y);
+        g.draw(this.getShape());
     }
 
     @Override
     public Shape getShape() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Shape s = new Rectangle(this.x, this.y, this.imagem.getWidth(), this.imagem.getHeight());
+        float angulo = (float) Math.toRadians(this.anguloRotate);
+        s = s.transform(Transform.createRotateTransform(-angulo, x + this.imagem.getCenterOfRotationX(), y + this.imagem.getCenterOfRotationY()));
+        return s;
     }
 
     public void rotacionaImagem(GameContainer gc) {

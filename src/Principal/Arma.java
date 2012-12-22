@@ -10,7 +10,9 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
+import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
@@ -73,11 +75,15 @@ public class Arma extends GameObject {
         //fazer a arma sempre ficar na mao direita
         this.imagem.draw(x + this.portador.imagem.getWidth() / 2, y + imagem.getHeight() / 2);
         g.rotate(x + xRotate, y + yRotate, (float) this.anguloRotate);
+        g.draw(this.getShape());
     }
 
     @Override
     public Shape getShape() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Shape s = new Rectangle(x + this.portador.imagem.getWidth() / 2, y + imagem.getHeight() / 2, this.imagem.getWidth(), this.imagem.getHeight());
+        float angulo = (float) Math.toRadians(this.anguloRotate);
+        s = s.transform(Transform.createRotateTransform(-angulo, x + xRotate, y + yRotate));
+        return s;
     }
 
     public void rotacionaImagem(GameContainer gc) {
