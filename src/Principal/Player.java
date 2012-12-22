@@ -9,13 +9,7 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Player extends GameObject {
-
-    String nome;
-    Image imagem;
-    int velocidade = 3;
-    double anguloRotate;
-    Arma arma;
+public class Player extends Personagem {
 
     public Player(int xSpawn, int ySpawn, String nome, String arma) {
         try {
@@ -27,6 +21,12 @@ public class Player extends GameObject {
         this.y = ySpawn;
 
         this.nome = nome;
+        
+        ///testes
+        this.forca = 50;
+        this.velocidade = 3;
+        //
+        
         this.arma = new Arma(arma, this);
     }
 
@@ -59,27 +59,10 @@ public class Player extends GameObject {
         this.imagem.setRotation((float) -this.anguloRotate);
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public int getVelocidade() {
-        return velocidade;
-    }
-
-    public void setVelocidade(int velocidade) {
-        this.velocidade = velocidade;
-    }
-
     public double getAnguloRotate() {
         return anguloRotate;
     }
 
-    public Arma getArma() {
-        return arma;
-    }
-
-    public void setArma(Arma arma) {
-        this.arma = arma;
-    }
+    
+    
 }

@@ -26,19 +26,26 @@ public class Arma extends GameObject {
     public boolean atacou;
     public int contAtaque = 115;
     public int contAtaquePadrao = 115;
-    Player portador;
+    Personagem portador;
     int xRotate;
     int yRotate;
+    float peso;
+    float velocidadeDeAtaque;
+    int alcance;
 
-    public Arma(String nome, Player portador) {
+    public Arma(String nome, Personagem portador) {
         this.nome = nome;
         this.portador = portador;
         try {
-            this.imagem = new Image("resources/weapons/2h sword.png");
+            this.imagem = new Image("resources/weapons/"+nome+".png");
         } catch (SlickException ex) {
             Logger.getLogger(Arma.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.anguloRotate = this.anguloPadrao;
+        this.peso = imagem.getHeight()*imagem.getWidth()/100f;
+      //  this.velocidadeDeAtaque = portador.getForca()/this.peso;
+        this.velocidadeDeAtaque = ( (float) portador.getForca() ) / this.peso;
+        this.alcance = this.imagem.getWidth();
     }
 
     @Override
@@ -58,7 +65,6 @@ public class Arma extends GameObject {
         } else {
             this.anguloRotate = this.anguloPadrao;
         }
-        System.out.println(contAtaque);
     }
 
     @Override
@@ -75,8 +81,8 @@ public class Arma extends GameObject {
     }
 
     public void rotacionaImagem(GameContainer gc) {
-        this.anguloRotate += 5;
-        this.contAtaque-=5;
+        this.anguloRotate += velocidadeDeAtaque;
+        this.contAtaque-=velocidadeDeAtaque;
     }
     
     public void resetContAtaque(){
