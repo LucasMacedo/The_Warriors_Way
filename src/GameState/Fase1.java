@@ -5,9 +5,8 @@
 package GameState;
 
 import Principal.Arma;
+import Principal.Mapa;
 import Principal.Player;
-import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.SetterOnlyReflection;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -15,7 +14,6 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.tiled.TiledMap;
 
 /**
  *
@@ -24,14 +22,13 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Fase1 extends BasicGameState {
 
     public static final int ID = 3;
-    TiledMap mapa;
-    int xMapa;
-    int yMapa;
+    Mapa mapa;
     public Image img;
     public Player player;
     GameContainer gc;
     StateBasedGame game;
-    Arma arma;
+    int offsetx;
+    int offsety;
 
     @Override
     public int getID() {
@@ -40,9 +37,12 @@ public class Fase1 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame game) throws SlickException {
-        this.player = new Player(gc.getWidth() / 2, gc.getHeight() / 2, "teste");
-        this.mapa = new TiledMap("resources/mapa teste.tmx");
-        this.arma = new Arma("teste");
+        int xSpawn = gc.getWidth() / 2;
+        int ySpawn = gc.getHeight() / 2;
+        this.player = new Player(xSpawn, ySpawn, "teste", "teste");
+        this.mapa = new Mapa("mapa teste");
+        this.offsetx = xSpawn;
+        this.offsety = ySpawn;
     }
 
     @Override
@@ -53,33 +53,39 @@ public class Fase1 extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame game, Graphics g) throws SlickException {
-        this.mapa.render(this.xMapa, this.yMapa);
+        this.mapa.render(gc, game, g);
         this.player.render(gc, game, g);
-        this.arma.render(gc, game, g);
     }
 
     public void processInput(GameContainer gc) {
         Input input = gc.getInput();
+        if (this.player.getArma().atacou == false) {
+            if (input.isKeyDown(Input.KEY_UP) || input.isKeyDown(Input.KEY_W)) {
+                this.mapa.setY(this.mapa.getY() + this.player.getVelocidade());
+                this.offsety -= this.player.getVelocidade();
+                //this.player.setY(this.player.getY() - 5);
+            }
+            if (input.isKeyDown(Input.KEY_DOWN) || input.isKeyDown(Input.KEY_S)) {
+                this.mapa.setY(this.mapa.getY() - this.player.getVelocidade());
+                this.offsety += this.player.getVelocidade();
+                //this.player.setY(this.player.getY() + 5);
+            }
+            if (input.isKeyDown(Input.KEY_LEFT) || input.isKeyDown(Input.KEY_A)) {
+                this.mapa.setX(this.mapa.getX() + this.player.getVelocidade());
+                this.offsetx -= this.player.getVelocidade();
+                //this.player.setX(this.player.getX() - 5);
+            }
+            if (input.isKeyDown(Input.KEY_RIGHT) || input.isKeyDown(Input.KEY_D)) {
+                this.mapa.setX(this.mapa.getX() - this.player.getVelocidade());
+                this.offsetx += this.player.getVelocidade();
+                //this.player.setX(this.player.getX() + 5);
+            }
 
-        if (input.isKeyDown(Input.KEY_UP) || input.isKeyDown(Input.KEY_W)) {
-            this.yMapa += player.getVelocidade();
-            //this.player.setY(this.player.getY() - 5);
-        }
-        if (input.isKeyDown(Input.KEY_DOWN) || input.isKeyDown(Input.KEY_S)) {
-            this.yMapa-= player.getVelocidade();
-            //this.player.setY(this.player.getY() + 5);
-        }
-        if (input.isKeyDown(Input.KEY_LEFT) || input.isKeyDown(Input.KEY_A)) {
-            this.xMapa+= player.getVelocidade();
-            //this.player.setX(this.player.getX() - 5);
-        }
-        if (input.isKeyDown(Input.KEY_RIGHT) || input.isKeyDown(Input.KEY_D)) {
-            this.xMapa-= player.getVelocidade();
-            //this.player.setX(this.player.getX() + 5);
-        }
-        
-        if(input.isMousePressed(1)){
-            this.arma.atacou = true;
+            //if (input.isMousePressed(1)) {
+            if (input.isKeyDown(Input.KEY_SPACE)) {
+                this.player.getArma().atacou = true;
+                this.player.getArma().resetContAtaque();
+            }
         }
     }
 }
