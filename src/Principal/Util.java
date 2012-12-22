@@ -19,4 +19,13 @@ public class Util {
         }
         return angulo;
     }
+    
+    public static double calculaDistancia(int x1, int y1, int x2, int y2) {
+
+        int x = x2 - x1;
+        int y = y2 - y1;
+
+        double distancia = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+        return distancia;
+    }
 }

@@ -9,11 +9,16 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Player extends Personagem {
+public class Inimigo extends Personagem {
 
-    public Player(int xSpawn, int ySpawn, String nome, String arma) {
+    Player player;
+    int xPlayer;
+    int yPlayer;
+
+    public Inimigo(int xSpawn, int ySpawn, String nome, String arma, Player player) {
+        this.player = player;
         try {
-            this.imagem = new Image("resources/personagens/player.png");
+            this.imagem = new Image("resources/personagens/" + nome + ".png");
         } catch (SlickException ex) {
             ex.printStackTrace();
         }
@@ -24,7 +29,7 @@ public class Player extends Personagem {
 
         ///testes
         this.forca = 50;
-        this.velocidade = 3;
+        this.velocidade = 2;
         //
 
         this.arma = new Arma(arma, this);
@@ -36,12 +41,24 @@ public class Player extends Personagem {
         if (this.arma.atacou == false) {
             this.rotacionaImagem(gc);
         }
+
+        this.xPlayer = (int)(this.player.getX()+this.player.imagem.getCenterOfRotationX());
+        this.yPlayer = (int)(this.player.getY()+this.player.imagem.getCenterOfRotationY());
+
+        double distanciaAtePlayer = Util.calculaDistancia(x, y, this.player.getX(), this.player.getY());
+        if (distanciaAtePlayer < this.arma.alcance*3/4) {
+            if (this.arma.atacou == false) {
+                this.ataca();
+            }
+        } else {
+            this.aproxima();
+        }
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame game, Graphics g) {
         this.arma.render(gc, game, g);
-        this.imagem.draw(this.x, this.y);
+        this.imagem.draw(x, y);
         g.draw(this.getShape());
     }
 
@@ -54,13 +71,27 @@ public class Player extends Personagem {
     }
 
     public void rotacionaImagem(GameContainer gc) {
-        int xMouse = gc.getInput().getMouseX();
-        int yMouse = gc.getInput().getMouseY();
-        this.anguloRotate = Util.calculaAngulo(xMouse, x + this.imagem.getWidth() / 2, yMouse, y + this.imagem.getHeight() / 2);
+        this.anguloRotate = Util.calculaAngulo(xPlayer, x + this.imagem.getWidth() / 2, yPlayer, y + this.imagem.getHeight() / 2);
         this.imagem.setRotation((float) -this.anguloRotate);
     }
 
-    public double getAnguloRotate() {
-        return anguloRotate;
+    private void ataca() {
+        this.arma.atacou = true;
+        this.arma.resetContAtaque();
+    }
+
+    private void aproxima() {
+        if (this.player.getX() < this.x) {
+            this.x -= this.velocidade;
+        }
+        if (this.player.getX() > this.x) {
+            this.x += this.velocidade;
+        }
+        if (this.player.getY() < this.y) {
+            this.y -= this.velocidade;
+        }
+        if (this.player.getY() > this.y) {
+            this.y += this.velocidade;
+        }
     }
 }

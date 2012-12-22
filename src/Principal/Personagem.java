@@ -4,67 +4,88 @@
  */
 package Principal;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Shape;
-import org.newdawn.slick.state.StateBasedGame;
 
 /**
  *
  * @author Lucas
  */
-public class Personagem extends GameObject{
-    
+public abstract class Personagem extends GameObject {
+
+    String nome;
+    int vida;
+    int forca;
+    int defesa;
     int velocidade;
-    public Image sprite;
     
+    Arma arma;
     
-    protected String nome;
-   
-    public Personagem (String nome) {
-       this.nome = nome; 
-       
-       try {
-            this.sprite = new Image("resources/espada.png");
-        } catch (SlickException ex) {
-            Logger.getLogger(Personagem.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    @Override
-    public void render(GameContainer gc, StateBasedGame game, Graphics g) {
-         this.sprite.draw(this.x,this.y); 
-    }
-     
-    @Override
-    public void update(GameContainer gc, StateBasedGame game, int delta) {
-        
-    }
-    
-    
-    public void resetPosicao (int x,int y){
-        this.x = x;
-        this.y = y;
-    }
-//    
-//    public void setDirecao(Direcao direcao){
-//        this.direcao = direcao;
-//    }
-//    
-//    public Direcao getDirecao(){
-//        return this.direcao;
-//    }
+    Image imagem;
+    double anguloRotate;
 
-    @Override
-    public Shape getShape() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public String getNome() {
+        return nome;
     }
 
-   
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-     
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
+    public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
+    public int getVelocidade() {
+        return velocidade;
+    }
+
+    public void setVelocidade(int velocidade) {
+        this.velocidade = velocidade;
+    }
+
+    public Arma getArma() {
+        return arma;
+    }
+
+    public void setArma(Arma arma) {
+        this.arma = arma;
+    }
+
+    public Image getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(Image imagem) {
+        this.imagem = imagem;
+    }
+
+    public double getAnguloRotate() {
+        return anguloRotate;
+    }
+
+    public void setAnguloRotate(double anguloRotate) {
+        this.anguloRotate = anguloRotate;
+    }
+    
+    
 }
