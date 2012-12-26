@@ -1,5 +1,6 @@
 package Principal;
 
+import Itens.Arma;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -11,30 +12,59 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Player extends Personagem {
 
-    public Player(int xSpawn, int ySpawn, String nome, String arma) {
+    public int offsetx;
+    public int offsety;
+
+    public Player(String nome, String arma) {
         try {
             this.imagem = new Image("resources/personagens/player.png");
         } catch (SlickException ex) {
             ex.printStackTrace();
         }
-        this.x = xSpawn;
-        this.y = ySpawn;
 
         this.nome = nome;
+        this.mochila = new Mochila(10);
+
 
         ///testes
+        this.vida = 100;
         this.forca = 50;
-        this.velocidade = 3;
-        //
+        this.destreza = 75;
+        this.peso = this.imagem.getWidth() * this.imagem.getHeight() / 5;
 
         this.arma = new Arma(arma, this);
+
+        this.velocidade = this.destreza / ((this.peso / 3) + (this.arma.getPeso() / 2));
+        if (this.velocidade < 1) {
+            this.velocidade = 1;
+        }
+        //75/(62/3)+(8/5) = 75/20.6+1.6 = 75/22.2 = 3.3
+        //75/(62/3)*(8/5) = 75/20.6*1.6 = 75/33 = 2.2
+        //por ser player, velocidade aumenta
+        this.velocidade += 1;
+        //
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame game, int delta) {
         this.arma.update(gc, game, delta);
-        if (this.arma.atacou == false) {
+        if (this.atacou == false && this.parado == false) {
             this.rotacionaImagem(gc);
+        }
+        if (this.contParado > 0) {
+            this.contParado--;
+            if (this.contCaiParaTras > 0) {
+                this.contCaiParaTras--;
+                this.caiParaTras();
+            }
+        } else {
+            this.parado = false;
+        }
+
+        if (this.contDanoLevado > 0) {
+            this.contDanoLevado--;
+        } else {
+            this.danoLevado = 0;
         }
     }
 
@@ -42,7 +72,14 @@ public class Player extends Personagem {
     public void render(GameContainer gc, StateBasedGame game, Graphics g) {
         this.arma.render(gc, game, g);
         this.imagem.draw(this.x, this.y);
-        g.draw(this.getShape());
+        if (this.danoLevado > 0) {
+            this.desenhaDano(g);
+        }
+    }
+
+    private void caiParaTras() {
+        this.offsetx -= this.distanciaQuedaParaTrasX;
+        this.offsety -= this.distanciaQuedaParaTrasY;
     }
 
     @Override

@@ -38,8 +38,8 @@ public class MenuPrincipal extends BasicGameState {
         this.gc = gc;
         this.game = game;
 
-        this.img = new Image("resources/Fundo.png");
-        this.img2 = new Image("resources/espada.png");
+        this.img = new Image("resources/misc/Fundo.png");
+        this.img2 = new Image("resources/misc/espada.png");
 
     }
 

@@ -34,7 +34,7 @@ public class TelaHistoria extends BasicGameState {
         this.gc =  gc;
         this.game = game;
         
-        this.img = new Image("resources/pergaminho.png");
+        this.img = new Image("resources/misc/pergaminho.png");
     }
 
     @Override
