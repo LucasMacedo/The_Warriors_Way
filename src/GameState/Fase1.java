@@ -41,7 +41,7 @@ public class Fase1 extends BasicGameState {
         int xSpawn = gc.getWidth() / 2;
         int ySpawn = gc.getHeight() / 2;
         this.player = new Player("teste", "1h axe");
-        this.inimigo = new Inimigo(100, 100, "cyclop", "2h axe", this.player);
+        this.inimigo = new Inimigo(100, 100, "orc", "2h axe", this.player);
         this.mapa = new Mapa("mapa teste");
                 
         this.player.setX(xSpawn);
