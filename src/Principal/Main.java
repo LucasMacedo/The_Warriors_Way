@@ -11,7 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Main extends StateBasedGame {
 
     public static void main(String[] args) throws SlickException {
-        AppGameContainer app = new AppGameContainer(new Main("The Warrior's Way"));
+        AppGameContainer app = new AppGameContainer(new Main("The Warrior Way"));
         app.setDisplayMode(800, 600, false);
         app.setTargetFrameRate(60);
 
